@@ -18,6 +18,7 @@
 		2314C3192DB10E8B00F52F7E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314C3182DB10E8B00F52F7E /* HomeView.swift */; };
 		2314C31B2DB11B0100F52F7E /* FurnitureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314C31A2DB11B0100F52F7E /* FurnitureView.swift */; };
 		2314C31D2DB11B1A00F52F7E /* Furniture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314C31C2DB11B1A00F52F7E /* Furniture.swift */; };
+		2314C31F2DB13C2F00F52F7E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314C31E2DB13C2F00F52F7E /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		2314C3182DB10E8B00F52F7E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2314C31A2DB11B0100F52F7E /* FurnitureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurnitureView.swift; sourceTree = "<group>"; };
 		2314C31C2DB11B1A00F52F7E /* Furniture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Furniture.swift; sourceTree = "<group>"; };
+		2314C31E2DB13C2F00F52F7E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				2314C3102DB100EA00F52F7E /* MainView.swift */,
 				2314C3182DB10E8B00F52F7E /* HomeView.swift */,
 				2314C31A2DB11B0100F52F7E /* FurnitureView.swift */,
+				2314C31E2DB13C2F00F52F7E /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				2314C2DA2DB0E72100F52F7E /* ContentView.swift in Sources */,
 				2314C3192DB10E8B00F52F7E /* HomeView.swift in Sources */,
 				2314C3112DB100EA00F52F7E /* MainView.swift in Sources */,
+				2314C31F2DB13C2F00F52F7E /* DetailView.swift in Sources */,
 				2314C3132DB102C200F52F7E /* AppViewModel.swift in Sources */,
 				2314C31D2DB11B1A00F52F7E /* Furniture.swift in Sources */,
 				2314C2D82DB0E72100F52F7E /* MyFurnitureAppUIApp.swift in Sources */,

@@ -41,6 +41,14 @@ struct MainView: View {
         }
         .overlay(alignment: .bottom) {
             CustomTabBar(currentTab: $appModel.currentTab, animation: animation)
+                .offset(y: appModel.showDetailView ? 150 : 0)
+        }
+        .overlay {
+            if let furniture = appModel.currentActiveItem, appModel.showDetailView {
+                DetailView(furniture: furniture, animation: animation)
+                    .environmentObject(appModel)
+                    .transition(.offset(x: 1, y: 1))
+            }
         }
     }
 }

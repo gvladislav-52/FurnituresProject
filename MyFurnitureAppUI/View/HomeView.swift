@@ -75,9 +75,19 @@ struct HomeView: View {
     @ViewBuilder
     func CardView(furniture: Furniture)-> some View {
         HStack(spacing: 12) {
-            Image(systemName: furniture.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            Group {
+                if appModel.currentActiveItem?.id == furniture.id && appModel.showDetailView {
+                    Image(systemName: furniture.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .opacity(0)
+                } else {
+                    Image(systemName: furniture.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .matchedGeometryEffect(id: furniture.id + "IMAGE", in: animation)
+                }
+            }
                 .frame(width: 120)
                 .padding()
                 .background{
@@ -86,14 +96,33 @@ struct HomeView: View {
                 }
             
             VStack(alignment: .leading, spacing: 10) {
-                Text (furniture.title)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                    .foregroundStyle(.black)
-                
-                Text ("by Seto")
-                    .font(.caption2.bold())
-                    .foregroundColor(.gray)
-                    .padding(.top, -5)
+                //MARK: Text Geometry Effect
+                Group {
+                    if appModel.currentActiveItem?.id == furniture.id && appModel.showDetailView {
+                        Text (furniture.title)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .foregroundStyle(.black)
+                            .opacity(0)
+                        
+                        Text ("by Seto")
+                            .font(.caption2.bold())
+                            .foregroundColor(.gray)
+                            .padding(.top, -5)
+                            .opacity(0)
+                    } else {
+                        Text (furniture.title)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .foregroundStyle(.black)
+                            .matchedGeometryEffect(id: furniture.id + "TITLE", in: animation)
+                        
+                        Text ("by Seto")
+                            .font(.caption2.bold())
+                            .foregroundColor(.gray)
+                            .padding(.top, -5)
+                            .matchedGeometryEffect(id: furniture.id + "SUBTITLE", in: animation)
+                            .opacity(0)
+                    }
+                }
                 
                 Text (furniture.subTitle)
                     .font(.system(size: 14))
@@ -123,8 +152,22 @@ struct HomeView: View {
                 .offset(y: 10)
                 
             }
+            .padding(.vertical, 10)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
+        .padding(10)
+        .background{
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(.white)
+                .shadow(color: .black.opacity(0.08), radius: 5, x: 5, y: 5)
+        }
+        .onTapGesture(perform: {
+            withAnimation(.easeInOut) {
+                appModel.currentActiveItem = furniture
+                appModel.showDetailView = true
+            }
+        })
+        .padding(.bottom, 6)
     }
     
     @ViewBuilder

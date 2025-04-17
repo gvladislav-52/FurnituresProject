@@ -13,4 +13,9 @@ class AppViewModel: ObservableObject {
     
     //MARK: Home Properties
     @Published var currentMenu: String = "All"
+    
+    //MARK: Detail View Properties
+    
+    @Published var showDetailView: Bool = false
+    @Published var currentActiveItem: Furniture?
 }
